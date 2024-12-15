@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Exo Space";
-    src: url("/assets/exo_space/Exo\ Space\ DEMO.ttf") format("truetype");
+    src: url("https://github.com/henriqu3mart1ns/porfolio/blob/main/assets/exo_space/Exo%20Space%20DEMO.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Cyborg";
-    src: url("/assets/cyborg_punk/Cyborg\ Punk.ttf") format("truetype");
+    src: url("https://github.com/henriqu3mart1ns/porfolio/blob/main/assets/cyborg_punk/Cyborg%20Punk.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
