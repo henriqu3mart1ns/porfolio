@@ -6,25 +6,51 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener("click", (e) => {
             e.preventDefault(); 
 
-            // Remover a classe 'ativo' de todas as seções
             sections.forEach((sessao) => {
                 sessao.classList.remove("ativo");
-                // Redefinir a opacidade antes de ocultar
                 sessao.style.opacity = 0;
             });
 
-            // Atrasar a exibição da nova seção para permitir a transição
             const targetId = item.getAttribute("href").substring(1);  
             const targetSection = document.getElementById(targetId);
 
-            // Exibir a nova seção com transição
             targetSection.classList.add("ativo");
             setTimeout(() => {
                 targetSection.style.opacity = 1;
-            }, 10);  // Um pequeno atraso para garantir a transição suave
+            }, 10);  
         });
     });
 
+    // Carrossel de Projetos
+    const slides = document.querySelectorAll("#projetos .carrossel .slide");
+    const prevBtn = document.querySelector("#projetos .carrossel .prev");
+    const nextBtn = document.querySelector("#projetos .carrossel .next");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else if (index >= slides.length) {
+            currentSlide = 0;
+        }
+        const offset = -currentSlide * 100;
+        document.querySelector("#projetos .carrossel .slides").style.transform = `translateX(${offset}%)`;
+    }
+
+    prevBtn.addEventListener("click", () => {
+        currentSlide--;
+        showSlide(currentSlide);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentSlide++;
+        showSlide(currentSlide);
+    });
+
+    // Inicializa o carrossel na primeira slide
+    showSlide(currentSlide);
+
+    // Configuração do progresso (se necessário)
     document.querySelectorAll('.progress-circle').forEach(function (progressCircle) {
         const percent = progressCircle.getAttribute('data-percent');
         progressCircle.style.setProperty('--percent', percent); 
